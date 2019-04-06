@@ -1,0 +1,48 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.21'
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext.deps = [
+        'androidSupportVersionLib'      :   '28.0.0',
+        'androidConstraintLayoutLib'    :   '1.1.3',
+        'retrofitVersionLib'            :   '2.3.0',
+        'gsonVersionLib'                :   '2.3.0',
+        'spekVersion'                   :   '1.1.5',
+        'androidJunit5Version'          :   '1.0.12',
+        'junitPlatformVersion'          :   '1.2.0',
+        'googleMapsVersionLib'          :   '16.0.0',
+        'roomVersion'                   :   '1.1.1',
+        'coroutinesVersionLib'          :   '1.0.1',
+        'daggerVersionLib'              :   '2.19',
+        'picassoVersionLib'             :   '2.71828',
+        'mockitoCoreVersionLib'         :   '2.19.0',
+        'nhaarmanMockitoVersionLib'     :   '1.5.0',
+        'lifecycleVersionLib'           :   '1.1.1',
+        'jUnitVersionLib'               :   '4.12'
+
+]
