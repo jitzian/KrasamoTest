@@ -1,5 +1,6 @@
 package org.com.raian.krasamocodechallenge.view.viewmodel
 
+import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import kotlinx.coroutines.Dispatchers
@@ -20,9 +21,10 @@ class StockViewModel(context: Context) : BaseViewModel() {
     private lateinit var restApi: RestApi
     @Inject
     lateinit var retrofit: Retrofit
-//    private var detailsOfCompany = MutableLiveData<ResultApi> by lazy {
-//        MutableLiveData<ResultApi>()
-//    }
+
+    private val detailsOfCompany by lazy {
+        MutableLiveData<ResultApi>()
+    }
 
     private val injector = DaggerComponentInjector
         .builder()
@@ -42,16 +44,21 @@ class StockViewModel(context: Context) : BaseViewModel() {
     fun fetchStockResultsByCompany(company: String) = GlobalScope.launch(Dispatchers.IO) {
         restApi = retrofit.create(RestApi::class.java)
         restApi.fetchStockResultsByCompany(company).enqueue(object: Callback<ResultApi>{
+
             override fun onFailure(call: Call<ResultApi>, t: Throwable) {
                 logger.severe("$TAG::fetchStockResultsByCompany::onFailure::${t.message}")
             }
 
             override fun onResponse(call: Call<ResultApi>, response: Response<ResultApi>) {
                 logger.severe("$TAG::fetchStockResultsByCompany::onResponse::${response.body()?.high.toString()}")
+                detailsOfCompany.value = response.body()
             }
 
         })
     }
 
+    fun getDetailsOfCompany(): LiveData<ResultApi>{
+        return detailsOfCompany
+    }
 
 }
