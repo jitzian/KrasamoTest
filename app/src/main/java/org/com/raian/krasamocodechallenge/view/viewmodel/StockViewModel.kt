@@ -1,5 +1,6 @@
 package org.com.raian.krasamocodechallenge.view.viewmodel
 
+import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -19,6 +20,9 @@ class StockViewModel(context: Context) : BaseViewModel() {
     private lateinit var restApi: RestApi
     @Inject
     lateinit var retrofit: Retrofit
+//    private var detailsOfCompany = MutableLiveData<ResultApi> by lazy {
+//        MutableLiveData<ResultApi>()
+//    }
 
     private val injector = DaggerComponentInjector
         .builder()
