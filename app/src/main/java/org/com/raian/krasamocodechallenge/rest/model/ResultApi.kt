@@ -25,16 +25,16 @@ class ResultApi {
     var open: Double = 0.toDouble()
     @SerializedName("openTime")
     @Expose
-    var openTime: Long = 0
+    var openTime: Double = 0.toDouble()
     @SerializedName("close")
     @Expose
     var close: Double = 0.toDouble()
     @SerializedName("closeTime")
     @Expose
-    var closeTime: Long = 0
+    var closeTime: Double = 0.toDouble()
     @SerializedName("high")
     @Expose
-    var high: Long = 0
+    var high: Double = 0.toDouble()
     @SerializedName("low")
     @Expose
     var low: Double = 0.toDouble()
@@ -49,25 +49,25 @@ class ResultApi {
     var latestTime: String? = null
     @SerializedName("latestUpdate")
     @Expose
-    var latestUpdate: Long = 0
+    var latestUpdate: Double = 0.toDouble()
     @SerializedName("latestVolume")
     @Expose
-    var latestVolume: Long = 0
+    var latestVolume: Double = 0.toDouble()
     @SerializedName("iexRealtimePrice")
     @Expose
     var iexRealtimePrice: Double = 0.toDouble()
     @SerializedName("iexRealtimeSize")
     @Expose
-    var iexRealtimeSize: Long = 0
+    var iexRealtimeSize: Double = 0.toDouble()
     @SerializedName("iexLastUpdated")
     @Expose
-    var iexLastUpdated: Long = 0
+    var iexLastUpdated: Double = 0.toDouble()
     @SerializedName("delayedPrice")
     @Expose
     var delayedPrice: Double = 0.toDouble()
     @SerializedName("delayedPriceTime")
     @Expose
-    var delayedPriceTime: Long = 0
+    var delayedPriceTime: Double = 0.toDouble()
     @SerializedName("extendedPrice")
     @Expose
     var extendedPrice: Double = 0.toDouble()
@@ -79,7 +79,7 @@ class ResultApi {
     var extendedChangePercent: Double = 0.toDouble()
     @SerializedName("extendedPriceTime")
     @Expose
-    var extendedPriceTime: Long = 0
+    var extendedPriceTime: Double = 0.toDouble()
     @SerializedName("previousClose")
     @Expose
     var previousClose: Double = 0.toDouble()
@@ -94,25 +94,25 @@ class ResultApi {
     var iexMarketPercent: Double = 0.toDouble()
     @SerializedName("iexVolume")
     @Expose
-    var iexVolume: Long = 0
+    var iexVolume: Double = 0.toDouble()
     @SerializedName("avgTotalVolume")
     @Expose
-    var avgTotalVolume: Long = 0
+    var avgTotalVolume: Double = 0.toDouble()
     @SerializedName("iexBidPrice")
     @Expose
-    var iexBidPrice: Long = 0
+    var iexBidPrice: Double = 0.toDouble()
     @SerializedName("iexBidSize")
     @Expose
-    var iexBidSize: Long = 0
+    var iexBidSize: Double = 0.toDouble()
     @SerializedName("iexAskPrice")
     @Expose
-    var iexAskPrice: Long = 0
+    var iexAskPrice: Double = 0.toDouble()
     @SerializedName("iexAskSize")
     @Expose
-    var iexAskSize: Long = 0
+    var iexAskSize: Double = 0.toDouble()
     @SerializedName("marketCap")
     @Expose
-    var marketCap: Long = 0
+    var marketCap: Double = 0.toDouble()
     @SerializedName("peRatio")
     @Expose
     var peRatio: Double = 0.toDouble()
