@@ -2,7 +2,6 @@ package org.com.raian.krasamocodechallenge.view.viewmodel
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -17,13 +16,18 @@ import retrofit2.Retrofit
 import java.util.logging.Logger
 import javax.inject.Inject
 
-class StockViewModel(context: Context) : BaseViewModel() {
+class StockViewModel : BaseViewModel() {
     private lateinit var restApi: RestApi
     @Inject
     lateinit var retrofit: Retrofit
 
     private val detailsOfCompany by lazy {
         MutableLiveData<ResultApi>()
+    }
+
+    //This variable is for giving update to UI about the request that is performed
+    private val statusOfResponse by lazy {
+        MutableLiveData<Boolean>()
     }
 
     private val injector = DaggerComponentInjector
@@ -47,18 +51,23 @@ class StockViewModel(context: Context) : BaseViewModel() {
 
             override fun onFailure(call: Call<ResultApi>, t: Throwable) {
                 logger.severe("$TAG::fetchStockResultsByCompany::onFailure::${t.message}")
+                statusOfResponse.value = false
             }
 
             override fun onResponse(call: Call<ResultApi>, response: Response<ResultApi>) {
                 logger.severe("$TAG::fetchStockResultsByCompany::onResponse::${response.body()?.high.toString()}")
                 detailsOfCompany.value = response.body()
+                statusOfResponse.value = response.body() != null
             }
-
         })
     }
 
     fun getDetailsOfCompany(): LiveData<ResultApi>{
         return detailsOfCompany
+    }
+
+    fun getStatusOfResponse(): LiveData<Boolean>{
+        return statusOfResponse
     }
 
 }
