@@ -43,7 +43,7 @@ abstract class BaseActivity : AppCompatActivity(), NetworkReceiver.NetworkListen
         if (!isConnected) {
             mSnackBar = Snackbar.make(
                 findViewById(R.id.mLayoutMainActivityContainer),
-                "There is no Connectivity",
+                getString(R.string.NoConnectivityMessage),
                 Snackbar.LENGTH_LONG
             ) //Assume "rootLayout" as the root layout of every activity.
             mSnackBar.duration = Snackbar.LENGTH_LONG
