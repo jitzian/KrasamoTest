@@ -9,12 +9,11 @@ import android.widget.TextView
 import org.com.raian.krasamocodechallenge.R
 import java.util.logging.Logger
 
-class LayoutIndicators
-@JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : LinearLayout(context, attrs, defStyleAttr) {
+class LayoutIndicators :LinearLayout {
+
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
 
     private val TAG = LayoutIndicators::class.java.simpleName
     private val logger = Logger.getLogger(TAG)
