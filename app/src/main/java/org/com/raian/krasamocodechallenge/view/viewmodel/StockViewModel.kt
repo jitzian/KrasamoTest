@@ -21,14 +21,15 @@ class StockViewModel : BaseViewModel() {
     @Inject
     lateinit var retrofit: Retrofit
 
-    private val detailsOfCompany by lazy {
-        MutableLiveData<ResultApi>()
-    }
-//    private val detailsOfCompany = ArrayList<ResultApi>()
-
     //This variable is for giving update to UI about the request that is performed
     private val statusOfResponse by lazy {
         MutableLiveData<Boolean>()
+    }
+
+    private val lstRes = ArrayList<ResultApi>()
+
+    private val listOfCompanies by lazy {
+        MutableLiveData<List<ResultApi>>()
     }
 
     private val injector = DaggerComponentInjector
@@ -46,9 +47,9 @@ class StockViewModel : BaseViewModel() {
         injector.inject(this)
     }
 
-    fun fetchStockResultsByCompany(company: String) = GlobalScope.launch(Dispatchers.IO) {
+    fun fetchStockResultsByCompany(companyName: String) = GlobalScope.launch(Dispatchers.IO) {
         restApi = retrofit.create(RestApi::class.java)
-        restApi.fetchStockResultsByCompany(company).enqueue(object: Callback<ResultApi>{
+        restApi.fetchStockResultsByCompany(companyName).enqueue(object: Callback<ResultApi>{
 
             override fun onFailure(call: Call<ResultApi>, t: Throwable) {
                 logger.severe("$TAG::fetchStockResultsByCompany::onFailure::${t.message}")
@@ -56,24 +57,29 @@ class StockViewModel : BaseViewModel() {
             }
 
             override fun onResponse(call: Call<ResultApi>, response: Response<ResultApi>) {
-                logger.severe("$TAG::fetchStockResultsByCompany::onResponse::${response.body()?.high.toString()}")
-//                response.body()?.let { detailsOfCompany.add(it) }
-                detailsOfCompany.value = response.body()
+                logger.info("$TAG::fetchStockResultsByCompany::onResponse::${response.body()?.high.toString()}")
+                response.body()?.let {
+                    if(lstRes.contains(it)){
+                        lstRes.remove(it)
+                        lstRes.add(it)
+                        listOfCompanies.value = lstRes
+                    }else{
+                        lstRes.add(it)
+                        listOfCompanies.value = lstRes
+                    }
+                }
                 statusOfResponse.value = response.body() != null
             }
         })
     }
 
-//    fun getDetailsOfCompany(): List<ResultApi>{
-//        return detailsOfCompany
-//    }
-
-    fun getDetailsOfCompany(): LiveData<ResultApi>{
-        return detailsOfCompany
-    }
 
     fun getStatusOfResponse(): LiveData<Boolean>{
         return statusOfResponse
+    }
+
+    fun getListOfCompanies(): LiveData<List<ResultApi>>{
+        return listOfCompanies
     }
 
 }

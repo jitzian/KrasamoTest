@@ -7,7 +7,6 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import org.com.raian.krasamocodechallenge.R
-import org.com.raian.krasamocodechallenge.rest.model.ResultApi
 import org.com.raian.krasamocodechallenge.util.safeLet
 import org.com.raian.krasamocodechallenge.view.activities.callbacks.ResultsOfRequestedCompanyCallback
 import org.com.raian.krasamocodechallenge.view.adapters.RVCustomAdapter
@@ -20,7 +19,6 @@ class MainActivity : BaseActivity(), ResultsOfRequestedCompanyCallback {
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var rvCustomAdapter: RVCustomAdapter
     private lateinit var fabPlusStockCompany: FloatingActionButton
-    private var lstRes = ArrayList<ResultApi>()
 
     init {
         TAG = MainActivity::class.java.simpleName
@@ -74,26 +72,8 @@ class MainActivity : BaseActivity(), ResultsOfRequestedCompanyCallback {
 
         listOfInputCompanies.add(inputCompany)
 
-//        for(i in listOfInputCompanies){
-//            viewModel.fetchStockResultsByCompany(i)
-////            viewModel.getDetailsOfCompany().observe(this, Observer {result ->
-////                result?.let { lstRes.add(it) }
-////            })
-//
-//        }
-//
-//        for (i in listOfInputCompanies){
-//            logger.info(" -- $i")
-//        }
-//        for (i in lstRes){
-//            logger.info(" ** ${i.symbol}")
-//        }
-//
-//        rvCustomAdapter = RVCustomAdapter(this, viewModel.getDetailsOfCompany())
-//        mRecyclerView.adapter = rvCustomAdapter
-
         viewModel.fetchStockResultsByCompany(inputCompany)
-        viewModel.getDetailsOfCompany().observe(this, Observer { result ->
+        viewModel.getListOfCompanies().observe(this, Observer { result ->
             logger.severe("$TAG::companyRequested::result --> $result")
 
             safeLet(this, result) { ctx, res ->
@@ -101,8 +81,7 @@ class MainActivity : BaseActivity(), ResultsOfRequestedCompanyCallback {
                 logger.severe("$TAG::companyRequested::ctx --> $ctx")
                 logger.severe("$TAG::companyRequested::res --> $res")
 
-                lstRes.add(res)
-                rvCustomAdapter = RVCustomAdapter(ctx, lstRes)
+                rvCustomAdapter = RVCustomAdapter(ctx, res)
                 mRecyclerView.adapter = rvCustomAdapter
 
             }
