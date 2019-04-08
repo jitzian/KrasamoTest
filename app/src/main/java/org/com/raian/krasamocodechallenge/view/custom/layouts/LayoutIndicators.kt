@@ -38,9 +38,12 @@ class LayoutIndicators :LinearLayout {
             TypeOfData.Low -> {
                 mImageViewIcon.setImageDrawable(resources.getDrawable(R.drawable.down_arrow_icon))
             }
-
             else -> logger.info("$TAG::setImage::No image to be displayed")
         }
+    }
+
+    fun getImageViewIcon(): ImageView{
+        return mImageViewIcon
     }
 
 }
