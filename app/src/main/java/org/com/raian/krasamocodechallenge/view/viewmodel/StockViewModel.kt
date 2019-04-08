@@ -24,6 +24,7 @@ class StockViewModel : BaseViewModel() {
     private val detailsOfCompany by lazy {
         MutableLiveData<ResultApi>()
     }
+//    private val detailsOfCompany = ArrayList<ResultApi>()
 
     //This variable is for giving update to UI about the request that is performed
     private val statusOfResponse by lazy {
@@ -56,11 +57,16 @@ class StockViewModel : BaseViewModel() {
 
             override fun onResponse(call: Call<ResultApi>, response: Response<ResultApi>) {
                 logger.severe("$TAG::fetchStockResultsByCompany::onResponse::${response.body()?.high.toString()}")
+//                response.body()?.let { detailsOfCompany.add(it) }
                 detailsOfCompany.value = response.body()
                 statusOfResponse.value = response.body() != null
             }
         })
     }
+
+//    fun getDetailsOfCompany(): List<ResultApi>{
+//        return detailsOfCompany
+//    }
 
     fun getDetailsOfCompany(): LiveData<ResultApi>{
         return detailsOfCompany

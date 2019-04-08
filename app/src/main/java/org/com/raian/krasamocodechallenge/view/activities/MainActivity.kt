@@ -20,7 +20,7 @@ class MainActivity : BaseActivity(), ResultsOfRequestedCompanyCallback {
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var rvCustomAdapter: RVCustomAdapter
     private lateinit var fabPlusStockCompany: FloatingActionButton
-    private var lstRes = mutableListOf<ResultApi>()
+    private var lstRes = ArrayList<ResultApi>()
 
     init {
         TAG = MainActivity::class.java.simpleName
@@ -66,12 +66,33 @@ class MainActivity : BaseActivity(), ResultsOfRequestedCompanyCallback {
         }
     }
 
-    var hmCompany: Map<String, String> = HashMap()
+    private var listOfInputCompanies = mutableListOf<String>()
 
-    override fun companyRequested(company: String) {
-        logger.severe("$TAG::company::$company")
 
-        viewModel.fetchStockResultsByCompany(company)
+    override fun companyRequested(inputCompany: String) {
+        logger.severe("$TAG::inputCompany::$inputCompany")
+
+        listOfInputCompanies.add(inputCompany)
+
+//        for(i in listOfInputCompanies){
+//            viewModel.fetchStockResultsByCompany(i)
+////            viewModel.getDetailsOfCompany().observe(this, Observer {result ->
+////                result?.let { lstRes.add(it) }
+////            })
+//
+//        }
+//
+//        for (i in listOfInputCompanies){
+//            logger.info(" -- $i")
+//        }
+//        for (i in lstRes){
+//            logger.info(" ** ${i.symbol}")
+//        }
+//
+//        rvCustomAdapter = RVCustomAdapter(this, viewModel.getDetailsOfCompany())
+//        mRecyclerView.adapter = rvCustomAdapter
+
+        viewModel.fetchStockResultsByCompany(inputCompany)
         viewModel.getDetailsOfCompany().observe(this, Observer { result ->
             logger.severe("$TAG::companyRequested::result --> $result")
 
