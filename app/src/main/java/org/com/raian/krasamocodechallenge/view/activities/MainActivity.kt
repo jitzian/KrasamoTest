@@ -2,7 +2,6 @@ package org.com.raian.krasamocodechallenge.view.activities
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -18,7 +17,7 @@ class MainActivity : BaseActivity(), ResultsOfRequestedCompanyCallback {
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var rvCustomAdapter: RVCustomAdapter
-    private lateinit var fabPlusStockCompany: FloatingActionButton
+
 
     init {
         TAG = MainActivity::class.java.simpleName

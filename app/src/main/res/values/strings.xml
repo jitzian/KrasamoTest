@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">KrasamoCodeChallenge</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="NoConnectivityMessage">There is no Connectivity</string>
+    <string name="dialogFragmentTitleText">New Stock Symbol</string>
+    <string name="dialogFramentHintText">Type Symbol to be searched</string>
 </resources>

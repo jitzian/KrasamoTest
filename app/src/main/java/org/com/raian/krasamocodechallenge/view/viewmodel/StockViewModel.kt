@@ -57,7 +57,6 @@ class StockViewModel : BaseViewModel() {
             }
 
             override fun onResponse(call: Call<ResultApi>, response: Response<ResultApi>) {
-                logger.info("$TAG::fetchStockResultsByCompany::onResponse::${response.body()?.high.toString()}")
                 response.body()?.let {
                     if(lstRes.contains(it)){
                         lstRes.remove(it)
