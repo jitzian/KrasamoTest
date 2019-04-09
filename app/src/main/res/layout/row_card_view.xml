@@ -25,14 +25,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                    <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
+                    <org.com.raian.krasamocodechallenge.view.ui.layouts.LayoutIndicators
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/mLayoutIndicatorSymbol"
                             android:layout_weight="1"
                             android:layout_gravity="left"/>
 
-                    <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
+                    <org.com.raian.krasamocodechallenge.view.ui.layouts.LayoutIndicators
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/mLayoutIndicatorOpen"
@@ -48,13 +48,13 @@
                         android:layout_gravity="right"
                         android:layout_marginEnd="0dp">
 
-                    <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
+                    <org.com.raian.krasamocodechallenge.view.ui.layouts.LayoutIndicators
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/mLayoutIndicatorHigh"
                             android:layout_weight="1"/>
 
-                    <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
+                    <org.com.raian.krasamocodechallenge.view.ui.layouts.LayoutIndicators
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/mLayoutIndicatorLow"

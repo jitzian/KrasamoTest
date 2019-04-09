@@ -7,8 +7,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.com.raian.krasamocodechallenge.dependency.injection.components.DaggerComponentInjector
 import org.com.raian.krasamocodechallenge.dependency.injection.modules.NetworkModule
-import org.com.raian.krasamocodechallenge.rest.RestApi
-import org.com.raian.krasamocodechallenge.rest.model.ResultApi
+import org.com.raian.krasamocodechallenge.network.rest.RestApi
+import org.com.raian.krasamocodechallenge.network.rest.model.ResultApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

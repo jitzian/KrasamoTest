@@ -17,7 +17,7 @@ class MainActivity : BaseActivity(), ResultsOfRequestedCompanyCallback {
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var rvCustomAdapter: RVCustomAdapter
-
+    private var listOfInputCompanies = mutableListOf<String>()
 
     init {
         TAG = MainActivity::class.java.simpleName
@@ -63,29 +63,17 @@ class MainActivity : BaseActivity(), ResultsOfRequestedCompanyCallback {
         }
     }
 
-    private var listOfInputCompanies = mutableListOf<String>()
-
-
     override fun companyRequested(inputCompany: String) {
-        logger.severe("$TAG::inputCompany::$inputCompany")
-
         listOfInputCompanies.add(inputCompany)
 
         viewModel.fetchStockResultsByCompany(inputCompany)
         viewModel.getListOfCompanies().observe(this, Observer { result ->
-            logger.severe("$TAG::companyRequested::result --> $result")
-
             safeLet(this, result) { ctx, res ->
-
-                logger.severe("$TAG::companyRequested::ctx --> $ctx")
-                logger.severe("$TAG::companyRequested::res --> $res")
-
                 rvCustomAdapter = RVCustomAdapter(ctx, res)
                 mRecyclerView.adapter = rvCustomAdapter
 
             }
         })
     }
-
 
 }

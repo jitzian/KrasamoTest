@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import org.com.raian.krasamocodechallenge.R
-import org.com.raian.krasamocodechallenge.rest.model.ResultApi
-import org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
-import org.com.raian.krasamocodechallenge.view.custom.layouts.TypeOfData
+import org.com.raian.krasamocodechallenge.network.rest.model.ResultApi
+import org.com.raian.krasamocodechallenge.view.ui.layouts.LayoutIndicators
+import org.com.raian.krasamocodechallenge.view.ui.layouts.TypeOfData
 import java.util.logging.Logger
 
 

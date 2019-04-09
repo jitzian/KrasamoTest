@@ -15,6 +15,19 @@
             android:src="@drawable/plus_sign_icon"
             android:layout_margin="@dimen/size16dp"/>
 
+    <TextView
+            android:id="@+id/textViewContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mainMyStocksText"
+            android:textSize="@dimen/size30sp"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="normal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/size20dp"
+            android:paddingBottom="@dimen/size16dp"/>
+
     <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

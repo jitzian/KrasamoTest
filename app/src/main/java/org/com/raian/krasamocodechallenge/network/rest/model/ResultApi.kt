@@ -1,4 +1,4 @@
-package org.com.raian.krasamocodechallenge.rest.model
+package org.com.raian.krasamocodechallenge.network.rest.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

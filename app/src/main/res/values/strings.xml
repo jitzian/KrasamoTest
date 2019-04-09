@@ -5,5 +5,6 @@
     <string name="NoConnectivityMessage">There is no Connectivity</string>
     <string name="dialogFragmentTitleText">New Stock Symbol</string>
     <string name="dialogFramentHintText">Type Symbol to be searched</string>
+    <string name="mainMyStocksText">My Stocks</string>
     <string name="textOK">OK</string>
 </resources>

@@ -1,4 +1,4 @@
-package org.com.raian.krasamocodechallenge.view.custom.layouts
+package org.com.raian.krasamocodechallenge.view.ui.layouts
 
 import android.content.Context
 import android.util.AttributeSet
