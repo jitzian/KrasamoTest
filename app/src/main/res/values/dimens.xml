@@ -3,4 +3,18 @@
     <dimen name="adsnac_horizontal_margin">16dp</dimen>
     <dimen name="popup_width">350dp</dimen>
     <dimen name="popup_height">250dp</dimen>
+    <dimen name="size3dp">3dp</dimen>
+    <dimen name="size1dp">1dp</dimen>
+    <dimen name="size16dp">16dp</dimen>
+    <dimen name="size30dp">30dp</dimen>
+    <dimen name="size90dp">90dp</dimen>
+    <dimen name="size40dp">40dp</dimen>
+    <dimen name="size5dp">5dp</dimen>
+
+    <dimen name="size5sp">5sp</dimen>
+    <dimen name="size18sp">18sp</dimen>
+    <dimen name="size60dp">60dp</dimen>
+    <dimen name="size16sp">16sp</dimen>
+    <dimen name="size30sp">30sp</dimen>
+
 </resources>

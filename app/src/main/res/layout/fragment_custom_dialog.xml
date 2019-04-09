@@ -13,18 +13,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dialogFragmentTitleText"
-            android:textSize="30dp"
+            android:textSize="@dimen/size30sp"
             android:fontFamily="sans-serif-light"
             android:textStyle="normal"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="@dimen/size5dp"/>
 
     <android.support.design.widget.TextInputLayout
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/size5dp"
             app:hintTextAppearance="@style/GrayTextInputLayout">
 
         <android.support.v7.widget.AppCompatEditText
@@ -33,10 +33,10 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/dialogFramentHintText"
                 android:fontFamily="sans-serif-light"
-                android:topLeftRadius="5dp"
-                android:topRightRadius="5dp"
-                android:bottomLeftRadius="5dp"
-                android:bottomRightRadius="5dp"
+                android:topLeftRadius="@dimen/size5sp"
+                android:topRightRadius="@dimen/size5sp"
+                android:bottomLeftRadius="@dimen/size5sp"
+                android:bottomRightRadius="@dimen/size5sp"
                 android:textColor="@color/color_white"
                 android:maxLines="1"/>
 
@@ -47,9 +47,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="OK"
-            android:textSize="18dp"
-            android:layout_marginTop="60dp"
+            android:text="@string/textOK"
+            android:textSize="@dimen/size18sp"
+            android:layout_marginTop="@dimen/size60dp"
     android:fontFamily="sans-serif-light"/>
 
 </LinearLayout>
