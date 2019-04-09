@@ -2,40 +2,75 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mRowCardView">
+            android:id="@+id/mRowCardView"
+            android:layout_margin="5dp">
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
 
-            <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mLayoutIndicatorSymbol"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mLayoutIndicatorOpen"/>
+                <LinearLayout
+                        android:id="@+id/mLinearLayoutWrapperOfSymbolAndOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-            <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mLayoutIndicatorHigh"/>
+                    <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/mLayoutIndicatorSymbol"
+                            android:layout_weight="1"
+                            android:layout_gravity="left"/>
 
-            <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mLayoutIndicatorLow"/>
+                    <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/mLayoutIndicatorOpen"
+                            android:layout_weight="1"
+                            android:layout_gravity="left"/>
+                </LinearLayout>
 
+                <LinearLayout
+                        android:id="@+id/mLinearLayoutWrapperOfHighAndLow"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="0dp">
+
+                    <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/mLayoutIndicatorHigh"
+                            android:layout_weight="1"/>
+
+                    <org.com.raian.krasamocodechallenge.view.custom.layouts.LayoutIndicators
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/mLayoutIndicatorLow"
+                            android:layout_weight="1"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView android:id="@+id/btn_capture_photo"
+                       android:layout_width="match_parent"
+                       android:layout_height="4dp"
+                       android:src="@drawable/rectangle"/>
         </LinearLayout>
 
+
     </android.support.v7.widget.CardView>
+
+
 </LinearLayout>
