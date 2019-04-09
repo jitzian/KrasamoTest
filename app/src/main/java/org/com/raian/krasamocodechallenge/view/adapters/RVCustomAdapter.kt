@@ -12,14 +12,16 @@ import org.com.raian.krasamocodechallenge.view.custom.layouts.TypeOfData
 import java.util.logging.Logger
 
 
-class RVCustomAdapter(private val context: Context,
-                      private val lstRes: List<ResultApi>?) :
+class RVCustomAdapter(
+    private val context: Context,
+    private val lstRes: List<ResultApi>?
+) :
     RecyclerView.Adapter<RVCustomAdapter.ViewHolder>() {
     private var TAG: String = RVCustomAdapter::class.java.simpleName
     private var logger: Logger
     private var listOfNewData: List<ResultApi>
 
-    init{
+    init {
         logger = Logger.getLogger(TAG)
         lstRes.let {
             listOfNewData = it!!
@@ -59,10 +61,12 @@ class RVCustomAdapter(private val context: Context,
         fun bindData(resultApi: ResultApi) {
             resultApi.symbol?.let {
                 mLayoutIndicatorSymbol.setText(it)
+                mLayoutIndicatorSymbol.getImageViewIcon().visibility = View.GONE
             }
 
             resultApi.open.let {
                 mLayoutIndicatorOpen.setText(it.toString())
+                mLayoutIndicatorOpen.getImageViewIcon().visibility = View.GONE
             }
 
             resultApi.high.let {
